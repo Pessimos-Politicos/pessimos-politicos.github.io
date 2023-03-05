@@ -12,6 +12,7 @@ const Pagination = () => {
                 count={allPages} 
                 page={pagination?? 1}
                 onChange={(e, value) => setPagination(value)}
+                size="medium"
             />
         </Container>
     )

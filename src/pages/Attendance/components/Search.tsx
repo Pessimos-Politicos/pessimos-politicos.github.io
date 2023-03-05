@@ -9,6 +9,8 @@ import {
 } from '@mui/material';
 import { useContext } from 'react';
 import AttendanceContext from '../../../context/Attendance';
+import styled from 'styled-components';
+import FilterContainer from './FilterContainer';
 
 
 const Search = () => {
@@ -18,43 +20,47 @@ const Search = () => {
             elevation={1}
             sx={{ 
                 padding: '.5rem',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                columnGap: '1rem'
+                
             }}
         >
-            <TextField 
-                id="outlined-basic" 
-                label="Pesquisar" 
-                variant="outlined" 
-                size="small"
-                sx={{ flex: 1 }}
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="start">
-                            <SearchIcon />
-                        </InputAdornment>
-                    )
-                }}
+            <Content>
+                <TextField 
+                    id="outlined-basic" 
+                    label="Pesquisar" 
+                    variant="outlined" 
+                    size="small"
+                    aria-label="Pesquisar"
+                    sx={{ flex: 1 }}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon />
+                            </InputAdornment>
+                        )
+                    }}
 
-                value={searchText}
-                onChange={(e) => updateSearchText(e.target.value)}
-            />
-        {/* <Button 
-            aria-label="filtrar"
-            endIcon={<FilterAltIcon />}
-        >
-            Filtrar 
-        </Button> */}
-        <IconButton
-            aria-label="filtrar"
-        >
-            <FilterAltIcon />
-        </IconButton>
+                    value={searchText}
+                    onChange={(e) => updateSearchText(e.target.value)}
+                />
+                <IconButton
+                    aria-label="filtrar"
+                >
+                    <FilterAltIcon />
+                </IconButton>
+            </Content>
+            <Content>
+                <FilterContainer />
+            </Content>
         </Paper>
     )
 }
 
 export default Search
+
+const Content = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+`

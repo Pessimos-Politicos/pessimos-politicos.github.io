@@ -10,3 +10,9 @@ type TAttendanceContext = {
     searchText: string,
     setSearchText: React.Dispatch<React.SetStateAction<string>>
 } 
+
+type TFilterAttr = {
+    party: string | null,
+    state: string | null,
+    [key: string]: string | null
+}
